@@ -11,7 +11,7 @@ sqlalchemy==2.0.41
 
 # Document Processing
 PyMuPDF==1.25.5
-Pillow==11.2.1
+Pillow>=10.4.0
 
 # AI / LLM
 google-genai==1.16.1
