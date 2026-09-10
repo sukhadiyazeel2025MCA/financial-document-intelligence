@@ -11,6 +11,23 @@ from app.core.logging_config import get_logger
 logger = get_logger(__name__)
 router = APIRouter(prefix='/api/v1')
 
+@router.get('')
+@router.get('/')
+async def api_root():
+    return {
+        'service': 'Document Intelligence API',
+        'version': '1.0.0',
+        'status': 'healthy',
+        'documentation': '/docs',
+        'endpoints': {
+            'health': '/api/v1/health',
+            'process_document': 'POST /api/v1/documents/process',
+            'list_documents': 'GET /api/v1/documents',
+            'get_document': 'GET /api/v1/documents/{document_name}',
+            'delete_all_documents': 'DELETE /api/v1/documents'
+        }
+    }
+
 @router.get('/health')
 async def health_check():
     return {'status': 'healthy', 'timestamp': datetime.utcnow().isoformat()}
