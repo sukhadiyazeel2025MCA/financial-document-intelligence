@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Result - Document Intelligence Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container" style="position: relative;">
+            <a href="/" class="btn btn-secondary btn-sm" style="position: absolute; left: 24px; top: 50%; transform: translateY(-50%); text-decoration: none;">&larr; Back to Dashboard</a>
+            <h1>📄 Document Intelligence Platform</h1>
+            <p class="subtitle">AI-Powered Financial Document Extraction & Validation</p>
+        </div>
+    </header>
+
+    <main class="container" style="margin-top: 24px;" id="result-container">
+        <div id="page-loading" style="text-align: center; padding: 40px;">
+            <div class="spinner" style="margin: 0 auto;"></div>
+            <p style="margin-top: 16px; color: var(--gray-500);">Loading document data...</p>
+        </div>
+
+        <div id="content-container" style="display: none;">
+            <div class="card" id="doc-header-card">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                        <h2 id="doc-name" style="margin: 0 0 8px 0; font-size: 24px; color: var(--gray-900);">Document Name</h2>
+                        <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                            <span id="doc-type-badge" class="badge badge-info">Type</span>
+                            <span id="doc-status-badge" class="badge">Status</span>
+                        </div>
+                    </div>
+                    <div style="text-align: right; color: var(--gray-500); font-size: 14px;">
+                        <p style="margin: 0 0 4px 0;">Processed: <span id="doc-timestamp" style="color: var(--gray-800); font-weight: 500;"></span></p>
+                        <p style="margin: 0 0 4px 0;">Time: <span id="doc-time" style="color: var(--gray-800); font-weight: 500;"></span></p>
+                        <p style="margin: 0;">Confidence: <span id="doc-confidence" style="color: var(--gray-800); font-weight: 500;"></span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">File Validation</h3>
+                <div id="file-validation-grid" class="kv-grid">
+                    <!-- Filled by JS -->
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Extracted Data</h3>
+                <div id="extracted-data-container">
+                    <!-- Filled by JS -->
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Financial Validations</h3>
+                <div id="validation-overall" style="margin-bottom: 16px;"></div>
+                <div id="validation-issues" style="margin-bottom: 16px;"></div>
+                <div id="validation-checks">
+                    <!-- Filled by JS -->
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Processing Metadata</h3>
+                <div id="metadata-grid" class="kv-grid">
+                    <!-- Filled by JS -->
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--gray-200); margin-bottom: 16px; padding-bottom: 16px;">
+                    <h3 class="card-title" style="margin: 0; border: none;">Raw JSON Results</h3>
+                    <button id="toggle-json-btn" class="btn btn-secondary btn-sm">View Raw JSON</button>
+                </div>
+                <div id="json-wrapper" style="display: none; position: relative;">
+                    <button id="copy-json-btn" class="btn btn-secondary btn-sm" style="position: absolute; top: 10px; right: 20px;">Copy</button>
+                    <pre class="json-container" id="raw-json"></pre>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 24px; color: var(--gray-500); font-size: 14px;">
+        Document Intelligence Platform v1.0 | AI Engineer Case Study
+    </footer>
+
+    <script src="/static/js/result.js?v=4"></script>
+</body>
+</html>

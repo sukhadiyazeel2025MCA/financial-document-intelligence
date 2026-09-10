@@ -1,0 +1,68 @@
+{
+  "document_name": "sample_balance_sheet.pdf",
+  "document_type": "balance_sheet",
+  "processing_status": "PASS",
+  "overall_confidence": 0.98,
+  "file_validation": {
+    "file_name": "sample_balance_sheet.pdf",
+    "file_type": "application/pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS",
+    "message": null
+  },
+  "extracted_data": {
+    "company_name": {"value": "Tech Solutions Inc.", "confidence": 0.99, "page_number": 1},
+    "currency": {"value": "USD", "confidence": 0.99, "page_number": 1},
+    "periods": [
+      {
+        "date": "2023-12-31",
+        "total_assets": {"value": 1500000.00, "confidence": 0.98},
+        "total_liabilities": {"value": 800000.00, "confidence": 0.98},
+        "total_equity": {"value": 700000.00, "confidence": 0.98},
+        "total_liabilities_and_equity": {"value": 1500000.00, "confidence": 0.98}
+      },
+      {
+        "date": "2022-12-31",
+        "total_assets": {"value": 1200000.00, "confidence": 0.98},
+        "total_liabilities": {"value": 600000.00, "confidence": 0.98},
+        "total_equity": {"value": 600000.00, "confidence": 0.98},
+        "total_liabilities_and_equity": {"value": 1200000.00, "confidence": 0.98}
+      }
+    ]
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "balance_equation_check_2023",
+        "formula": "total_assets == total_liabilities + total_equity",
+        "operands": {"total_assets": 1500000.00, "total_liabilities": 800000.00, "total_equity": 700000.00},
+        "calculated_value": 1500000.00,
+        "reported_value": 1500000.00,
+        "variance": 0.00,
+        "status": "PASS",
+        "message": null
+      },
+      {
+        "name": "balance_equation_check_2022",
+        "formula": "total_assets == total_liabilities + total_equity",
+        "operands": {"total_assets": 1200000.00, "total_liabilities": 600000.00, "total_equity": 600000.00},
+        "calculated_value": 1200000.00,
+        "reported_value": 1200000.00,
+        "variance": 0.00,
+        "status": "PASS",
+        "message": null
+      }
+    ],
+    "overall_status": "PASS",
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": false,
+    "ocr_engine": null,
+    "ai_model": "gemini-2.0-flash",
+    "processed_at": "2024-01-15T10:35:00Z",
+    "processing_time_ms": 3200
+  }
+}

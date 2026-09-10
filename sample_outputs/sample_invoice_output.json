@@ -1,0 +1,63 @@
+{
+  "document_name": "sample_invoice.pdf",
+  "document_type": "invoice",
+  "processing_status": "PASS",
+  "overall_confidence": 0.96,
+  "file_validation": {
+    "file_name": "sample_invoice.pdf",
+    "file_type": "application/pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS",
+    "message": null
+  },
+  "extracted_data": {
+    "invoice_number": {"value": "INV-2024-001", "confidence": 0.99, "page_number": 1, "source_text": "Invoice No: INV-2024-001"},
+    "invoice_date": {"value": "2024-01-15", "confidence": 0.98, "page_number": 1, "source_text": "Date: January 15, 2024"},
+    "vendor_name": {"value": "ABC Technologies Pvt Ltd", "confidence": 0.97, "page_number": 1},
+    "customer_name": {"value": "XYZ Corporation", "confidence": 0.97, "page_number": 1},
+    "currency": {"value": "INR", "confidence": 0.99, "page_number": 1},
+    "subtotal": {"value": 50000.00, "confidence": 0.98, "page_number": 1},
+    "tax_amount": {"value": 9000.00, "confidence": 0.97, "page_number": 1},
+    "discount": {"value": 0.00, "confidence": 0.95, "page_number": 1},
+    "total_amount": {"value": 59000.00, "confidence": 0.99, "page_number": 1},
+    "line_items": [
+      {"description": "Web Development Services", "quantity": 1, "unit_price": 30000.00, "amount": 30000.00},
+      {"description": "UI/UX Design", "quantity": 1, "unit_price": 20000.00, "amount": 20000.00}
+    ]
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "line_item_subtotal_check",
+        "formula": "sum(line_item_amounts)",
+        "operands": {"line_item_amounts": [30000.00, 20000.00]},
+        "calculated_value": 50000.00,
+        "reported_value": 50000.00,
+        "variance": 0.00,
+        "status": "PASS",
+        "message": null
+      },
+      {
+        "name": "total_amount_check",
+        "formula": "subtotal + tax_amount - discount",
+        "operands": {"subtotal": 50000.00, "tax_amount": 9000.00, "discount": 0.00},
+        "calculated_value": 59000.00,
+        "reported_value": 59000.00,
+        "variance": 0.00,
+        "status": "PASS",
+        "message": null
+      }
+    ],
+    "overall_status": "PASS",
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": false,
+    "ocr_engine": null,
+    "ai_model": "gemini-2.0-flash",
+    "processed_at": "2024-01-15T10:30:00Z",
+    "processing_time_ms": 2450
+  }
+}
